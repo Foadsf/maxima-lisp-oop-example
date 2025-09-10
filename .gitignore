@@ -1,0 +1,20 @@
+# **Maxima temporary files**
+
+maxout.\*
+
+# **Lisp compiled files**
+
+\*.fasl  
+\*.fas  
+\*.fsl
+
+# **OS-specific files**
+
+.DS\_Store  
+Thumbs.db
+
+# **Editor-specific files**
+
+.vscode/  
+\*.swp  
+\*.swo

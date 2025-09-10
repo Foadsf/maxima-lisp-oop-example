@@ -1,0 +1,24 @@
+/*
+ * FILE: my_point.mac
+ * This is the public interface for the my_point class.
+*/
+
+/* 1. Define the structure using Maxima's own defstruct. */
+defstruct(my_point(x, y));
+
+/* 2. Load the Lisp file containing the methods for this class. */
+load(file_search("my_point.lisp"));
+
+/* 3. Define the public operator for the class. */
+infix("++");
+
+/*
+ * Use op() for robust type checking. This is the canonical way.
+ * op(p1) will return the symbol 'my_point if p1 is a my_point object.
+*/
+"++"(p1, p2) := if op(p1) = 'my_point and op(p2) = 'my_point
+  then add_points(p1, p2)
+  else error("The ++ operator can only be used on my_point objects. Received:", p1, p2);
+
+/* Optional: Provide a message to the user that the package is ready. */
+print("my_point class package loaded successfully.");
